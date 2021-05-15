@@ -63,7 +63,7 @@ $ apt install python2
 
 $ git clone 
 
-$ cd AXOM-FB-HACK
+$ cd tool-fb-hack
 
 $ ls
 
