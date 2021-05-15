@@ -2,11 +2,13 @@
 Tool FB Đa Tính Năng Free By dAYOShACKER505 and Hoangdzsvip
 
 FEATURES:
+
 1 LOGIN BẰNG EMAIL/USR ID
 
 2 LOGIN BẰNG TOKEN TOKEN
 
 CÁC TÍNH NĂNG:
+
 1 Tìm Thông Tin Bạn Bè FB
 
 2 Get ID Từ Bạn Bè
@@ -52,6 +54,7 @@ CÁC TÍNH NĂNG:
 25 Bảo Vệ Trang Cá Nhân
 
 Setup Tool:
+
 $ apt update && apt upgrade
 
 $ apt install git
