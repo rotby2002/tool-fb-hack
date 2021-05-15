@@ -61,7 +61,7 @@ $ apt install git
 
 $ apt install python2
 
-$ git clone 
+$ git clone https://github.com/vumanhhoangmc/tool-fb-hack.git
 
 $ cd tool-fb-hack
 
